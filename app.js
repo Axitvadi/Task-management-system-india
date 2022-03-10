@@ -5,7 +5,7 @@ const express = require("express")
 const bodyparser = require('body-parser')
 const app = express();
 const path = require("path")
-const expressSession = require('express-session')
+// const expressSession = require('express-session')
 const routes = require('./routes/index')
 const cookieParser = require('cookie-parser')
 const socketio = require("socket.io");
@@ -29,18 +29,17 @@ app.use(bodyparser.urlencoded({
 app.use(express.static('public'))
 // app.use('/public', express.static('public'))
 
-app.use(expressSession({
-    secret: process.env.secret,
-    resave: false,
-    saveUninitialized: false
-}))
+// app.use(expressSession({
+//     secret: process.env.secret,
+//     resave: false,
+//     saveUninitialized: false
+// }))
 // ------------------view engine ----------------------------
 app.set('views', path.join(__dirname, '/views/pages'))
 app.set('view engine', 'ejs')
 app.use(cookieParser())
 app.use(routes)
 
-const Botname = 'System';
 // socket.io
 io.on('connection', socket => {
     console.log('New WebSocket connection', socket.id);
