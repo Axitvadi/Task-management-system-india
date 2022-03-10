@@ -35,7 +35,7 @@ app.use(express.static('public'))
 //     saveUninitialized: false
 // }))
 // ------------------view engine ----------------------------
-// app.set('views', path.join(__dirname, 'views/pages'))
+app.set('views', path.join(__dirname, 'views/pages'))
 app.set('view engine', 'ejs')
 app.use(cookieParser())
 app.use(routes)
