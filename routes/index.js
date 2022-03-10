@@ -12,11 +12,11 @@ router.use('/user',user)
 router.use('/detail',detail)
 
 // ---------------------get-method-------------------------------
-router.get('/about-us', (req, res) => res.render('about-us'))
-router.get('/contact-us', (req, res) => res.render('contact-us'))
-router.get((req, res) => res.render('index'))
-router.get('/login', (req, res) => accountcontroller.data.getlogin(req,res))
-router.get('/logout', (req, res) => accountcontroller.data.logout(req,res))
+router.get('/about-us', (req, res) => res.render('about-us'));
+router.get('/contact-us', (req, res) => res.render('contact-us'));
+router.get('/', (req, res) => res.render('index'));
+router.get('/login', (req, res) => accountcontroller.data.getlogin(req,res));
+router.get('/logout', (req, res) => accountcontroller.data.logout(req,res));
 
 router.get('/our-services', (req, res) => res.render('our-services'))
 router.get('/signup', (req, res) => accountcontroller.data.getsignup(req,res))
