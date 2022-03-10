@@ -25,6 +25,7 @@ app.use(bodyparser.urlencoded({
     limit: '1024mb',
     extended: true
 }))
+
 app.use(express.static('public'))
 app.use('/public', express.static('public'))
 
@@ -54,7 +55,7 @@ io.on('connection', socket => {
     })
 })
 
-const port = process.env.PORT || 4000
-server.listen(port, () => {
-    console.log(`server successful started at port ${port}..`)
+const PORT = process.env.PORT || 4000
+server.listen(PORT, () => {
+    console.log(`server successful started at port ${PORT}..`)
 })
