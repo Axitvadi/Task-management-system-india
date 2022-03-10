@@ -27,7 +27,7 @@ app.use(bodyparser.urlencoded({
 }))
 
 app.use(express.static('public'))
-app.use('/public', express.static('public'))
+// app.use('/public', express.static('public'))
 
 app.use(expressSession({
     secret: process.env.secret,
