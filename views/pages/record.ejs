@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Add Record</title>
+	<%- include('../partials/head.ejs') %>
+	<style>
+		.card-body {
+			padding: 0 !important;
+		}
+
+		td,
+		Th {
+			color: #c2c7d0 !important;
+		}
+
+		.hidden {
+			display: none;
+		}
+	</style>
+</head>	
+
+<body class="hold-transition sidebar-mini">
+	<div class="wrapper">
+		<%- include('../partials/body.ejs') %>
+
+		<div class="content-wrapper">
+			<section class="content">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-12">
+							<div class="card">
+								<div class="card-header d-flex align-items-center  justify-content-center">
+									<h3 style="padding-right: 45px;" class="card-title mb-0 ">Record of User</h3>
+
+								</div>
+								<div class=" d-flex justify-content-between px-2 mt-2 mb-2 align-items-center">
+									<div class="form-check">
+										<input class="form-check-input Task" type="radio" value="List Of All Task"
+											name="flexRadioDefault" id="flexRadioDefault1" checked>
+										<label class="form-check-label" for="flexRadioDefault1">
+											List Of All Task
+										</label>
+									</div>
+									<div class="form-check">
+										<input class="form-check-input Task" type="radio" name="flexRadioDefault"
+											id="flexRadioDefault2" value="List Of Pending Task">
+										<label class="form-check-label" for="flexRadioDefault2">
+											List Of Pending Task
+										</label>
+									</div>
+									<div class="form-check">
+										<input class="form-check-input Task" type="radio" name="flexRadioDefault"
+											id="flexRadioDefault4" value="List of Running task">
+										<label class="form-check-label" for="flexRadioDefault4">
+											List of Running task
+										</label>
+									</div>
+									<div class="form-check">
+										<input class="form-check-input Task" type="radio" name="flexRadioDefault"
+											id="flexRadioDefault3" value="List of Completed task">
+										<label class="form-check-label" for="flexRadioDefault3">
+											List of Completed task
+										</label>
+									</div>
+									<button type="button" id="addButton" style="padding: 8px;"
+										class="btn me-2 btn-success" data-bs-toggle="modal"
+										data-bs-target="#exampleModal" onclick="">Add Task</button>
+								</div>
+								<!-- -----------------confirmation model---------- -->
+								<div>
+									<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+										data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+										aria-hidden="true">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title" id="staticBackdropLabel">Confirmation
+													</h5>
+													<button type="button" class="btn-close" data-bs-dismiss="modal"
+														aria-label="Close"></button>
+												</div>
+												<div class="modal-body">
+													Are You Sure To Delete this Project Of This User ?
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-secondary"
+														data-bs-dismiss="modal">Cancel</button>
+													<button type="button" id="confirm" data-bs-dismiss="modal"
+														class="btn btn-primary">Confirm</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="card-body">
+									<table class="table table-bordered table-dark table-hover">
+										<thead>
+											<tr>
+												<th>Id</th>
+												<th>Developer</th>
+												<th>job</th>
+												<th>Current Project name</th>
+												<th>Date of Assigned</th>
+												<th>Project Status</th>
+												<th>Date of Complated</th>
+												<th>Edit details</th>
+											</tr>
+										</thead>
+										<tbody>
+
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<nav aria-label="Page navigation">
+				<ul class="pagination justify-content-end pe-3">
+					<li class="page-item"><a id="Previous" href="" class="pagemanage page-link">Previous</a>
+					</li>
+					<li class="page-item"><a id="currentPrevious" href="" class=" pagemanage page-link">-1</a>
+					</li>
+					<li class="page-item"><a id="current" href="" class="pagemanage page-link">1</a></li>
+					<li class="page-item"><a id="currentNext" href="" class="pagemanage page-link">2</a></li>
+					<li class="page-item"><a id="Next" href="" class="page-link pagemanage">Next</a></li>
+				</ul>
+			</nav>
+		</div>
+		<!-- -- -----------chatbox------------- -->
+		<%- include('../partials/chatbox.ejs') %>
+
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">User Management </h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form class="row g-3 needs-validation" id="form" novalidate>
+							<div class="col-md-12">
+								<label for="select" class="form-label">Choose a Developer</label>
+								<select id="select" class="form-select" aria-label="Default select example">
+									<option selected>Developer</option>
+									<option value="1">One</option>
+									<option value="2">Two</option>
+									<option value="3">Three</option>
+								</select>
+							</div>
+
+							<div class="col-md-12">
+								<label for="validationCustom02" class="form-label">Job</label>
+								<input type="text" class="form-control tvalue" id="Job">
+
+							</div>
+							<div class="col-md-12">
+								<label for="validationCustom02" class="form-label">Project name</label>
+								<input type="text" class="form-control tvalue" id="Projectname">
+
+							</div>
+							<div class="col-md-6">
+								<label for="validationCustom03" class="form-label">Date of Assigned</label>
+								<input type="date" class="form-control tvalue" id="Dateofassigned">
+							</div>
+
+							<div class="col-md-6">
+								<label for="validationCustom05" class="form-label">Date Of Completed</label>
+								<input type="date" class="form-control tvalue" id="DateOfcompleted">
+							</div>
+
+							<label class="" for="flexRadio2">
+								Project Status
+							</label>
+							<div style="padding-left: 12px;" class=" d-flex mt-0 justify-content-between">
+								<div class="form-check col-md-4 ">
+									<input class="form-check-input" checked type="radio" name="Projectstatus"
+										id="flexRadio2" value="Pending">
+									<label class="form-check-label" for="flexRadio2">
+										Pending
+									</label>
+								</div>
+								<div class="form-check col-md-4">
+									<input class="form-check-input" type="radio" name="Projectstatus" id="flexRadio3"
+										value="Running">
+									<label class="form-check-label" for="flexRadio3">
+										Running
+									</label>
+								</div>
+								<div class="form-check col-md-4">
+									<input class="form-check-input" type="radio" name="Projectstatus" id="flexRadio1"
+										value="Completed">
+									<label class="form-check-label" for="flexRadio1">
+										Completed
+									</label>
+								</div>
+							</div>
+
+							<div class="col-12 modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+									id="close">Close</button>
+								<button class="btn btn-primary" type="submit" id="submit">Submit</button>
+								<a class="btn btn-success" type="button" id="savechanges" onclick="edit2(event)">Save
+									Changes</a>
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.content-wrapper -->
+		<%- include('../partials/footer.ejs') %>
+	</div>
+	<%- include('../partials/script.ejs') %>
+	<script src="../dist/js/record.js"></script>
+</body>
+</html>

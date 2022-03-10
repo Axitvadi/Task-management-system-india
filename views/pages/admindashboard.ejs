@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Dashboard</title>
+  <%- include('../partials/head.ejs') %>
+
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+  <div class="wrapper">
+    <%- include('../partials/body.ejs') %>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0">Dashboard</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <section class="col-lg-7 connectedSortable">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">
+                    <i class="fas fa-chart-bar mr-1"></i>
+                    Project
+                  </h3>
+                </div>
+                <div class="card-body">
+                  <div class="tab-content p-0">
+                    <canvas id="myChart" aria-label="chart" style="height: 300px;"></canvas>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- -------------------chatbox model----------------- -->
+    <%- include('../partials/chatbox.ejs') %>
+	
+    <%- include('../partials/footer.ejs') %>
+  </div>
+  <%- include('../partials/script.ejs') %>
+  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+  <script src="../dist/js/dashboard.js"></script>
+</body>
+</html>

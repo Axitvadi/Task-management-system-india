@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>User Dashboard</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="../dist/css/adminchatbox.css">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+	<link rel="stylesheet" href="assets/css/tablestyle.css">
+
+	<link rel="stylesheet" href="assets/css/userstyle.css">
+</head>
+
+<body>
+	<!-- ============userprofile=============== -->
+	<div class="container">
+		<div class="main-body">
+			<nav aria-label="breadcrumb" class="main-breadcrumb">
+				<ol class="breadcrumb">
+					<li class=" ms-2 d-flex align-items-center" aria-current="page">User Profile</li>
+					<div class="col-md-4 d-flex align-items-center justify-content-end text-center ms-auto ">
+						<!-- chat icon -->
+						<a class="nav-item dropdown">
+							<abbr title="">
+								<a id="chaticon" class="nav-link" type="button" data-bs-toggle="modal"
+									data-bs-target="#chatbox">
+									<i class="far fa-comments"></i>
+								</a>
+							</abbr>
+						</a>
+						<a type="button" href="/logout" class="btn btn-primary">Logout</a>
+					</div>
+				</ol>
+			</nav>
+
+			<!-- chat box -->
+			<div class="modal fade" id="chatbox" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+				aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				<div style="max-width: 650px;" class="modal-dialog modal-dialog-scrollable">
+					<div class="modal-content">
+						<div class="modal-header msger-header">
+							<div class="msger-header-title">
+								<i class="fas fa-comment-alt"></i> ChatBox
+							</div>
+							<div class="msger-header-options">
+								<button style="margin: 0px; padding: 0px;" type="button" class="btn-close"
+									data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+						</div>
+						<section style="box-sizing: border-box; margin: 0%; padding: 0%; " class="msger modal-body">
+							<main class="msger-chat ">
+							</main>
+
+							<form class="msger-inputarea">
+								<input type="text" class="msger-input" placeholder="Enter your message...">
+								<button type="submit" class="msger-send-btn">Send</button>
+							</form>
+						</section>
+					</div>
+				</div>
+			</div>
+
+			<div class="row gutters-sm">
+				<div class="col-md-4 mb-3 d-flex">
+					<div class="card w-100">
+						<div class="card-body ">
+							<div class="d-flex flex-column align-items-center text-center h-75">
+								<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin"
+									class="rounded-circle mt-4" width="200">
+								<div class="mt-3">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<div class="card mb-3">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-sm-3">
+									<h6 class="mb-0 ">UserName</h6>
+								</div>
+								<div class="col-sm-9 text-secondary detail ">
+
+								</div>
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col-sm-3">
+									<h6 class="mb-0">Email</h6>
+								</div>
+								<div class="col-sm-9 email text-secondary">
+
+								</div>
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col-sm-3">
+									<h6 class="mb-0 ">ID</h6>
+								</div>
+								<div class="col-sm-9 id text-secondary">
+
+								</div>
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col-sm-3">
+									<h6 class="mb-0">Job</h6>
+								</div>
+								<div class="col-sm-9 job text-secondary">
+
+								</div>
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col-sm-12">
+									<a class="btn btn-info text-white" id="useredit" data-bs-toggle="modal"
+										data-bs-target="#exampleModal">Edit</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- ========./userprofile============ -->
+	<section>
+		<div class="container">
+			<div class="main-body">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="table-wrap">
+							<table class="table table-striped">
+								<thead>
+									<tr class="">
+										<th class=" text-center">Project name</th>
+										<th class=" text-center">Date of Assigned</th>
+										<th class=" text-center">project Status</th>
+										<th class=" text-center">Date Of Completed</th>
+										<th class=" text-center">Edit details</th>
+									</tr>
+								</thead>
+								<tbody class=" text-center">
+
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
+	<!-- ------------------- model----------------- -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form class="row g-3 needs-validation" id="form" novalidate>
+						<div class="col-md-12 DU">
+							<label for="validationCustom02" class="form-label">Job</label>
+							<input type="text" class="form-control " id="Job">
+						</div>
+						<div class="col-md-12 DE">
+							<label for="validationCustom02" class="form-label">Project name</label>
+							<input type="text" class="form-control tvalue" id="Projectname">
+						</div>
+						<div class="col-md-6 DE">
+							<label for="validationCustom03" class="form-label">Date of Assigned</label>
+							<input type="date" class="form-control tvalue" id="Dateofassigned">
+						</div>
+
+						<div class="col-md-6 DE">
+							<label for="validationCustom05" class="form-label">Date Of Completed</label>
+							<input type="date" class="form-control tvalue" id="DateOfcompleted">
+						</div>
+						<label class="DE" for="flexRadio2">
+							Project Status
+						</label>
+						<div style="padding-left: 12px;" class=" d-flex mt-0 justify-content-between DE">
+							<div class="form-check col-md-4 DE">
+								<input class="form-check-input" checked type="radio" name="Projectstatus"
+									id="flexRadio2" value="Pending">
+								<label class="form-check-label" for="flexRadio2">
+									Pending
+								</label>
+							</div>
+							<div class="form-check col-md-4 DE">
+								<input class="form-check-input" type="radio" name="Projectstatus" id="flexRadio3"
+									value="Running">
+								<label class="form-check-label" for="flexRadio3">
+									Running
+								</label>
+							</div>
+							<div class="form-check col-md-4 DE ">
+								<input class="form-check-input" type="radio" name="Projectstatus" id="flexRadio1"
+									value="Completed">
+								<label class="form-check-label" for="flexRadio1">
+									Completed
+								</label>
+							</div>
+						</div>
+						<div class="col-12 modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+								id="close">Close</button>
+							<button class="btn btn-primary" type="submit" id="submit">Save Changes</button>
+							<a class="btn btn-success text-white" type="submit" id="savechanges" onclick="edit2()">Save
+								Changes</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"
+		integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+	</script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="../assets/js/table.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="../dist/js/chat.js"></script>
+	<script src="../dist/js/userchat.js"></script>
+</body>
+
+</html>
