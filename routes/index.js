@@ -14,7 +14,7 @@ router.use('/detail',detail)
 // ---------------------get-method-------------------------------
 router.get('/about-us', (req, res) => res.render('about-us'));
 router.get('/contact-us', (req, res) => res.render('contact-us'));
-router.get('/', (req, res) => res.render('index'));
+router.get('/', (req, res) => {return res.status(200).json({message:"Vadi on Rock!"})});
 router.get('/login', (req, res) => accountcontroller.data.getlogin(req,res));
 router.get('/logout', (req, res) => accountcontroller.data.logout(req,res));
 
