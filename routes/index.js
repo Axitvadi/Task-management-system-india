@@ -15,7 +15,7 @@ router.use('/detail',detail)
 router.get('/about-us', (req, res) => res.render('about-us'));
 router.get('/contact-us', (req, res) => res.render('contact-us'));
 router.get('/', (req, res) => {
-    return res.redirect('index.js');
+    return res.render('index.ejs');
 });
 router.get('/login', (req, res) => accountcontroller.data.getlogin(req,res));
 router.get('/logout', (req, res) => accountcontroller.data.logout(req,res));
