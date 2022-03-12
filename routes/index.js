@@ -23,7 +23,8 @@ router.get('/logout', (req, res) => accountcontroller.data.logout(req,res));
 router.get('/our-services', (req, res) => res.render('our-services'))
 //get method ma sign up chhe
 //aa aetle chhe bcoz jo user login hoy to page access na thay
-router.get('/signup', (req, res) => accountcontroller.data.getsignup(req,res))
+// router.get('/signup', (req, res) => accountcontroller.data.getsignup(req,res))
+router.get('/signup', (req, res) => res.render('signup'))
 router.get('/admin/dashboard', ensureauthorized(['admin']), (req, res) => res.render('admindashboard'))
 router.get('/user', ensureauthorized(['user']), (req, res) =>{res.render('admintabledemo')})
 router.get('/admin/record', ensureauthorized(['admin']), (req, res) => res.render('record'))
