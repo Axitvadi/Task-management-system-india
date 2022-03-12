@@ -187,25 +187,26 @@ exports.data = {
             }
         })
     },
-    getsignup: async (req, res) => {
-        const bearerHeader = req.cookies.jwttoken
-        if (!(typeof bearerHeader !== "undefined" && process.env.secret) || !bearerHeader) {
-            const data = {
-                message: "auth token not found..",
-                issuccess: false
-            }
-            const alert = "hello";
-            return res.render('signup', {
-                alert
-            })
-        }
-        let result = await resultdata(bearerHeader)
-        if (result.Result.role == 'admin') {
-            return res.redirect('/admin/dashboard') 
-        } else if (result.Result.role == 'user') {
-            return res.redirect('/user')
-        }
-    },
+    // getsignup: async (req, res) => {
+    //     const bearerHeader = req.cookies.jwttoken
+    //     if (!(typeof bearerHeader !== "undefined" && process.env.secret) || !bearerHeader) {
+    //         const data = {
+    //             message: "auth token not found..",
+    //             issuccess: false
+    //         }
+    //         const alert = "hello";
+    //         return res.render('signup', {
+    //             alert
+    //         })
+    //     }
+    //     let result = await resultdata(bearerHeader)
+    //     if (result.Result.role == 'admin') {
+    //         return res.redirect('/admin/dashboard') 
+    //     } else if (result.Result.role == 'user') {
+    //         return res.redirect('/user')
+    //     }
+    // },
+    
     logout: async (req, res) => {
         try {
             res.clearCookie('jwttoken')
@@ -238,4 +239,28 @@ function resultdata(bearerHeader) {
             resolve(false)
         })
     })
+}
+
+exports.getsignup =  async (req, res, next) => {
+   try {
+    const bearerHeader = req.cookies.jwttoken
+    if (!(typeof bearerHeader !== "undefined" && process.env.secret) || !bearerHeader) {
+        const data = {
+            message: "auth token not found..",
+            issuccess: false
+        }
+        const alert = "hello";
+        return res.render('signup', {
+            alert
+        })
+    }
+    let result = await resultdata(bearerHeader)
+    if (result.Result.role == 'admin') {
+        return res.redirect('/admin/dashboard') 
+    } else if (result.Result.role == 'user') {
+        return res.redirect('/user')
+    }
+   } catch (error) {
+       next(error)
+   }
 }

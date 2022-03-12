@@ -35,10 +35,16 @@ app.use('/public', express.static('public'))
 //     saveUninitialized: false
 // }))
 // ------------------view engine ----------------------------
-app.set('view engine', 'ejs')
 app.set('views', 'views/pages')
+app.set('view engine', 'ejs')
 app.use(cookieParser())
 app.use(routes)
+app.use((error, res) => {
+    const statusCode = res.statusCode || 500;
+    res.status(statusCode).json({
+        message: error.message
+    })
+})
 
 // socket.io
 io.on('connection', socket => {
