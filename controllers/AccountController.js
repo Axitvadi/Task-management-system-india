@@ -9,7 +9,7 @@ exports.data = {
             let userinfo = await USER.findOne({
                 email: req.body.email
             });
-            if(userinfo && userinfo.userverification == true){
+            if (userinfo && userinfo.userverification == true) {
                 const alert = {
                     message: "Alert! Email Already Registered!",
                     class: "show",
@@ -19,7 +19,7 @@ exports.data = {
                     alert
                 })
             }
-            if(userinfo && userinfo.username == req.body.username){
+            if (userinfo && userinfo.username == req.body.username) {
                 const alert = {
                     message: "Alert! Username Already Taken!",
                     class: "show",
@@ -78,7 +78,7 @@ exports.data = {
             let userinfo = await USER.findOne({
                 email: req.body.username
             });
-            if (userinfo){
+            if (userinfo) {
                 if (userinfo.userverification == true) {
                     if (req.body.password !== userinfo.password) {
                         return res.json({
@@ -175,7 +175,7 @@ exports.data = {
                 }
                 return res.render('login')
             } else if (decoded.role == 'admin') {
-                return res.redirect('/admin/dashboard')
+                return res.render('admindashboard')
             } else if (decoded.role == 'user') {
                 return res.render('admintabledemo')
             } else {
@@ -187,26 +187,25 @@ exports.data = {
             }
         })
     },
-    // getsignup: async (req, res) => {
-    //     const bearerHeader = req.cookies.jwttoken
-    //     if (!(typeof bearerHeader !== "undefined" && process.env.secret) || !bearerHeader) {
-    //         const data = {
-    //             message: "auth token not found..",
-    //             issuccess: false
-    //         }
-    //         const alert = "hello";
-    //         return res.render('signup', {
-    //             alert
-    //         })
-    //     }
-    //     let result = await resultdata(bearerHeader)
-    //     if (result.Result.role == 'admin') {
-    //         return res.redirect('/admin/dashboard') 
-    //     } else if (result.Result.role == 'user') {
-    //         return res.redirect('/user')
-    //     }
-    // },
-    
+    getsignup: async (req, res) => {
+        const bearerHeader = req.cookies.jwttoken
+        if (!(typeof bearerHeader !== "undefined" && process.env.secret) || !bearerHeader) {
+            const data = {
+                message: "auth token not found..",
+                issuccess: false
+            }
+            const alert = "hello";
+            return res.render('signup', {
+                alert
+            })
+        }
+        let result = await resultdata(bearerHeader)
+        if (result.Result.role == 'admin') {
+            return res.render('admindashboard')
+        } else if (result.Result.role == 'user') {
+            return res.render('admintabledemo')
+        }
+    },
     logout: async (req, res) => {
         try {
             res.clearCookie('jwttoken')
@@ -241,26 +240,26 @@ function resultdata(bearerHeader) {
     })
 }
 
-exports.getsignup =  async (req, res, next) => {
-   try {
-    const bearerHeader = req.cookies.jwttoken
-    if (!(typeof bearerHeader !== "undefined" && process.env.secret) || !bearerHeader) {
-        const data = {
-            message: "auth token not found..",
-            issuccess: false
-        }
-        const alert = "hello";
-        return res.render('signup', {
-            alert
-        })
-    }
-    let result = await resultdata(bearerHeader)
-    if (result.Result.role == 'admin') {
-        return res.redirect('/admin/dashboard') 
-    } else if (result.Result.role == 'user') {
-        return res.redirect('/user')
-    }
-   } catch (error) {
-       next(error)
-   }
-}
+// exports.getsignup =  async (req, res, next) => {
+//    try {
+//     const bearerHeader = req.cookies.jwttoken
+//     if (!(typeof bearerHeader !== "undefined" && process.env.secret) || !bearerHeader) {
+//         const data = {
+//             message: "auth token not found..",
+//             issuccess: false
+//         }
+//         const alert = "hello";
+//         return res.render('signup', {
+//             alert
+//         })
+//     }
+//     let result = await resultdata(bearerHeader)
+//     if (result.Result.role == 'admin') {
+//         return res.redirect('/admin/dashboard') 
+//     } else if (result.Result.role == 'user') {
+//         return res.redirect('/user')
+//     }
+//    } catch (error) {
+//        next(error)
+//    }
+// }
