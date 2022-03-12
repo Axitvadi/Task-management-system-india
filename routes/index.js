@@ -32,7 +32,8 @@ router.get('/admin/Running_task', ensureauthorized(['admin']), (req, res) => res
 router.get('/logout', (req, res) => accountcontroller.data.logout(req, res))
 router.get('/verified', (req, res) => usercontroller.data.userverification(req, res))
 // ------------------------------------post-method----------------------------------
-router.post('/signup', (req, res) => accountcontroller.data.signup(req, res))
+router.post('/signup', (req, res) => {
+   return accountcontroller.data.signup(req, res)})
 router.post('/login', (req, res) => accountcontroller.data.login(req, res))
 
 module.exports = router;
