@@ -23,7 +23,7 @@ router.get('/logout', (req, res) => accountcontroller.data.logout(req,res));
 router.get('/our-services', (req, res) => res.render('our-services.ejs'))
 
 // router.get('/signup', accountcontroller.getsignup)
-router.get('/signup', (req, res) => {res.render('signup.ejs')})
+router.get('/signup', (req, res) => {return res.render('signup.ejs')})
 router.get('/admin/dashboard', ensureauthorized(['admin']), (req, res) => res.render('admindashboard'))
 router.get('/user', ensureauthorized(['user']), (req, res) =>{res.render('admintabledemo')})
 router.get('/admin/record', ensureauthorized(['admin']), (req, res) => res.render('record'))
