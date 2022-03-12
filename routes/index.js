@@ -22,7 +22,6 @@ router.get('/logout', (req, res) => accountcontroller.data.logout(req,res));
 
 router.get('/our-services', (req, res) => res.render('our-services.ejs'))
 
-// router.get('/signup', accountcontroller.getsignup)
 router.get('/signup', (req, res) => accountcontroller.data.getsignup(req,res));
 router.get('/admin/dashboard', ensureauthorized(['admin']), (req, res) => res.render('admindashboard'))
 router.get('/user', ensureauthorized(['user']), (req, res) =>{res.render('admintabledemo')})
@@ -34,7 +33,6 @@ router.get('/admin/Running_task', ensureauthorized(['admin']), (req, res) => res
 router.get('/logout', (req, res) => accountcontroller.data.logout(req, res))
 router.get('/verified', (req, res) => usercontroller.data.userverification(req, res))
 // ------------------------------------post-method----------------------------------
-//aa post ma chhe
 router.post('/signup', (req, res) => {
    return accountcontroller.data.signup(req, res)})
 router.post('/login', (req, res) => accountcontroller.data.login(req, res))
