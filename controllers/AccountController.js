@@ -195,7 +195,7 @@ exports.data = {
                 issuccess: false
             }
             const alert = "hello";
-            return res.render('signup', {
+            return res.redirect('/signup', {
                 alert
             })
         }
