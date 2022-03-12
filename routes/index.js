@@ -12,19 +12,16 @@ router.use('/user',user)
 router.use('/detail',detail)
 
 // ---------------------get-method-------------------------------
-router.get('/about-us', (req, res) => res.render('about-us'));
-router.get('/contact-us', (req, res) => res.render('contact-us'));
+router.get('/about-us', (req, res) => res.render('about-us.ejs'));
+router.get('/contact-us', (req, res) => res.render('contact-us.ejs'));
 router.get('/', (req, res) => {
     return res.render('index.ejs');
 });
 router.get('/login', (req, res) => accountcontroller.data.getlogin(req,res));
 router.get('/logout', (req, res) => accountcontroller.data.logout(req,res));
 
-router.get('/our-services', (req, res) => res.render('our-services'))
-//get method ma sign up chhe
-//aa aetle chhe bcoz jo user login hoy to page access na thay
-//ahiya change karu padse
-// done
+router.get('/our-services', (req, res) => res.render('our-services.ejs'))
+
 router.get('/signup', accountcontroller.getsignup)
 // router.get('/signup', (req, res) => {res.render('signup')})
 router.get('/admin/dashboard', ensureauthorized(['admin']), (req, res) => res.render('admindashboard'))
