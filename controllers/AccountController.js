@@ -64,7 +64,7 @@ exports.data = {
             }
         } catch (err) {
             const alert = {
-                message: 'Email Already Registered',
+                message: err,
                 class: "show",
                 secondclass: "alert-danger"
             }
