@@ -60,7 +60,12 @@ exports.data = {
                            <a type="submit" href="https://task-management-system-india.herokuapp.com/verified?email=${req.body.email}">click here to verified your account</a>
                     `,
                 })
-                return res.render('login')
+                const info = {
+                    secondclass:"alert-success",
+                    class:"show",
+                    message:"we send confirmation email, please confirm your email then login "
+                }
+                return res.render('login',{info})
             }
         } catch (err) {
             const alert = {
@@ -239,27 +244,3 @@ function resultdata(bearerHeader) {
         })
     })
 }
-
-// exports.getsignup =  async (req, res, next) => {
-//    try {
-//     const bearerHeader = req.cookies.jwttoken
-//     if (!(typeof bearerHeader !== "undefined" && process.env.secret) || !bearerHeader) {
-//         const data = {
-//             message: "auth token not found..",
-//             issuccess: false
-//         }
-//         const alert = "hello";
-//         return res.render('signup', {
-//             alert
-//         })
-//     }
-//     let result = await resultdata(bearerHeader)
-//     if (result.Result.role == 'admin') {
-//         return res.redirect('/admin/dashboard') 
-//     } else if (result.Result.role == 'user') {
-//         return res.redirect('/user')
-//     }
-//    } catch (error) {
-//        next(error)
-//    }
-// }
