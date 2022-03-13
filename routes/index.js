@@ -22,6 +22,7 @@ router.get('/', (req, res) => {
     return res.render('index.ejs');
 });
 router.get('/login', (req, res) => accountcontroller.data.getlogin(req, res));
+
 router.get('/logout', (req, res) => accountcontroller.data.logout(req, res));
 
 router.get('/our-services', (req, res) => {
@@ -29,6 +30,7 @@ router.get('/our-services', (req, res) => {
 })
 
 router.get('/signup', (req, res) => accountcontroller.data.getsignup(req, res));
+
 router.get('/admin/dashboard', ensureauthorized(['admin']), (req, res) => res.render('admindashboard'))
 router.get('/user', ensureauthorized(['user']), (req, res) => { res.render('admintabledemo') })
 router.get('/admin/record', ensureauthorized(['admin']), (req, res) => res.render('record'))
