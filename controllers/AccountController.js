@@ -57,7 +57,7 @@ exports.data = {
                     subject: "Verify Your Account",
                     text: "We have received your forget password request",
                     html: `click here to verified your account
-                           <a type="submit" href="/verified?email=${req.body.email}">click here to verified your account</a>
+                           <a type="submit" href="https://task-management-system-india.herokuapp.com/verified?email=${req.body.email}">click here to verified your account</a>
                     `,
                 })
                 return res.render('login')
