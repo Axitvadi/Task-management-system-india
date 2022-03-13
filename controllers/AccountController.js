@@ -32,17 +32,7 @@ exports.data = {
             let obj = req.body
             // let Array = [];
             // obj.work = Array;
-            const created = await USER.create(obj)
-            if (!created) {
-                const alert = {
-                    message: "Alert! signup failed !",
-                    class: "show",
-                    secondclass: "alert-danger"
-                }
-                return res.render('signup', {
-                    alert
-                })
-            } else {
+            
                 // ------------------send mail---------------------
                 const transporter = nodemailer.createTransport({
                     service: "gmail",
@@ -60,13 +50,36 @@ exports.data = {
                            <a type="submit" href="https://task-management-system-india.herokuapp.com/verified?email=${req.body.email}">click here to verified your account</a>
                     `,
                 })
-                const info = {
-                    secondclass:"alert-success",
-                    class:"show",
-                    message:"we send confirmation email, please confirm your email then login "
+                if (emailSended) {
+                    const created = await USER.create(obj)
+                    if (!created) {
+                        const alert = {
+                            message: "Alert! signup failed !",
+                            class: "show",
+                            secondclass: "alert-danger"
+                        }
+                        return res.render('signup', {
+                            alert
+                        })
+                    }
+                }else{
+                    const alert = {
+                        message: "signup failed !",
+                        class: "show",
+                        secondclass: "alert-danger"
+                    }
+                    return res.render('signup', {
+                        alert
+                    })
                 }
-                return res.render('login',{info})
-            }
+                const info = {
+                    secondclass: "alert-success",
+                    class: "show",
+                    message: "we send confirmation email, please confirm your email then login "
+                }
+                return res.render('login', {
+                    info
+                })
         } catch (err) {
             const alert = {
                 message: err,
@@ -114,8 +127,6 @@ exports.data = {
                             userinfo
                         }
                     })
-
-
                 } else {
                     return res.json({
                         issuccess: false,
