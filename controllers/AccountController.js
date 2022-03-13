@@ -30,8 +30,8 @@ exports.data = {
                 })
             }
             let obj = req.body
-            let Array = [];
-            obj.work = Array;
+            // let Array = [];
+            // obj.work = Array;
             const created = await USER.create(obj)
             if (!created) {
                 const alert = {
